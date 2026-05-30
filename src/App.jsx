@@ -5,7 +5,7 @@ const App = () => {
   // TODO: Define initial product data
   const initialProducts=[
     {id:1, name:"Laptop", price:"ksh75000", inStock:true, image: "https://www.bing.com/th/id/OIP.sTNL4tqO4KG7OWX3W_lFfAHaHa?w=193&h=193&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2.jpeg"},
-    {id:2, name:"Phone", price:"ksh120000", inStock:true, image: "https://www.bing.com/th/id/OIP.gBRS3kJpkrZ0VbZlaNECDgHaHa?w=193&h=193&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2.jpeg"},
+    {id:2, name:"Phone", price:"ksh120000", inStock:false, image: "https://www.bing.com/th/id/OIP.gBRS3kJpkrZ0VbZlaNECDgHaHa?w=193&h=193&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2.jpeg"},
     {id:3, name:"Tablet", price:"ksh30000", inStock:false, image: "https://www.bing.com/th/id/OIP.c034wcEWDaq9DBdPHH7KuAHaFB?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2.jpeg"}
   ]
 

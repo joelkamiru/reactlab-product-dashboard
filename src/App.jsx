@@ -3,18 +3,22 @@ import ProductList from './components/ProductList';
 
 const App = () => {
   // TODO: Define initial product data
-  const productsData=[
-    {id:1, name:"Polo Tshirt", price:"ksh1500", inStock:true, image: "https://th.bing.com/th/id/OIP.md6pmr9Fh2rYAbdFaEauGwHaHa?w=180&h=180&c=7&r=0&o=7&dpr=1.5&pid=1.7&rm=3.jpeg"},
-    {id:2, name:"Denim Pants", price:"ksh2000", inStock:true, image: "https://www.bing.com/th/id/OIP.UL_0qpjRxN6lrFLEzVbLTwHaLH?w=193&h=290&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2.jpeg"},
-    {id:3, name:"Leather Jacket", price:"ksh3500", inStock:false, image: "https://www.bing.com/th/id/OIP.trgHvhRyIMcU8lupuBgl0QHaI4?w=193&h=231&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2.jpeg"}
+  const initialProducts=[
+    {id:1, name:"Laptop", price:"ksh75000", inStock:true, image: "https://www.bing.com/th/id/OIP.sTNL4tqO4KG7OWX3W_lFfAHaHa?w=193&h=193&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2.jpeg"},
+    {id:2, name:"Phone", price:"ksh120000", inStock:true, image: "https://www.bing.com/th/id/OIP.gBRS3kJpkrZ0VbZlaNECDgHaHa?w=193&h=193&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2.jpeg"},
+    {id:3, name:"Tablet", price:"ksh30000", inStock:false, image: "https://www.bing.com/th/id/OIP.c034wcEWDaq9DBdPHH7KuAHaFB?w=193&h=135&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2.jpeg"}
   ]
 
   // TODO: Implement state to manage filtering
-
+  const [products, setProducts] = useState(initialProducts);
   const [filter, setFilter] = useState('all');
 
+  const handleDelete = (id) => {
+    setProducts(products.filter(product => product.id !== id));
+  };
+
   // TODO: Implement logic to filter products based on availability
-  const filteredProducts = productsData.filter(product => {
+  const filteredProducts = products.filter(product => {
     if (filter === 'inStock') return product.inStock;
     if (filter === 'outOfStock') return !product.inStock;
     return true
@@ -32,7 +36,8 @@ const App = () => {
       </div>
 
       {/* TODO: Render the ProductList component and pass filtered products */}
-      <ProductList products={filteredProducts} />
+      
+      <ProductList products={filteredProducts} onDelete={handleDelete} />
       
     </div>
     )

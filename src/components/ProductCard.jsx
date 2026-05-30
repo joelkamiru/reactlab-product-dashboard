@@ -1,10 +1,10 @@
 import React from 'react';
 import styles from '../styles/ProductCard.module.css';
 
-const ProductCard = ({ product }) => {
-   {/* TODO: Apply conditional class to <div> above for out-of-stock items */}
+const ProductCard = ({ product, onDelete }) => {
+   
       const cardClassName = product.inStock 
-    ? styles.card : `${styles.card} ${styles.outOfStock}`;
+    ? styles.card : `${styles.card} ${styles.outOfStock} outOfStockClass`;
   return (
     <div className={cardClassName}>
 
@@ -19,6 +19,11 @@ const ProductCard = ({ product }) => {
       {/* Show if the product is in stock or out of stock */}
       
         <p>Availability: {product.inStock ? "In Stock" : "Out of Stock"}</p>
+
+        <button onClick={() => onDelete(product.id)}>
+        Remove
+      </button>
+      
       
       
     </div>
